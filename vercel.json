@@ -1,4 +1,18 @@
 ﻿{
   "version": 2,
-  "framework": null
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ],
+  "trailingSlash": false
 }
