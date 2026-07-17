@@ -1,4 +1,4 @@
-﻿const BING_AUTOSEARCH = {
+const BING_AUTOSEARCH = {
     elements: {
         button: {
             start: document.getElementById("btn-start"),
@@ -163,7 +163,7 @@
                     BING_AUTOSEARCH.elements.div.timer.innerHTML = "<strong>Preparing...</strong> Generating dynamic search terms about \u0022" + topic + "\u0022 using AI.";
                     const prompt = "Provide a list of " + BING_AUTOSEARCH.search.limit + " unique and diverse search terms related to the topic \u0022" + topic + "\u0022. Each term short 2-5 words. Use " + (langNames[lang]||"English") + " language. Separate each term with a new line. No numbering or bullets.";
                     try {
-                        let r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey, {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
+                        let r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=" + apiKey, {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
                         if (!r.ok) { let e = await r.json(); throw new Error(e.error?e.error.message:"HTTP "+r.status); }
                         let d = await r.json();
                         if (!d.candidates||!d.candidates[0]) throw new Error("No response from Gemini");
